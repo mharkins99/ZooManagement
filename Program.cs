@@ -5,6 +5,7 @@ using Microsoft.Extensions.Hosting;
 using ZooManagement;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using ZooManagement.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,21 +53,21 @@ static void CreateDbIfNotExists(IHost host)
     var context = services.GetRequiredService<ZooDbContext>();
     context.Database.EnsureCreated();
 
-    /*   if (!context.Users.Any())
+     if (!context.Animal.Any())
        {
-           var users = SampleUsers.GetUsers();
-           context.Users.AddRange(users);
+           var animals = SampleAnimals.GetAnimals();
+           context.Animal.AddRange(animals);
            context.SaveChanges();
 
-           var posts = SamplePosts.GetPosts();
-           context.Posts.AddRange(posts);
-           context.SaveChanges();
+        //    var posts = SamplePosts.GetPosts();
+        //    context.Posts.AddRange(posts);
+        //    context.SaveChanges();
 
-           var interactions = SampleInteractions.GetInteractions();
-           context.Interactions.AddRange(interactions);
-           context.SaveChanges();
+        //    var interactions = SampleInteractions.GetInteractions();
+        //    context.Interactions.AddRange(interactions);
+        //    context.SaveChanges();
        }
-   */
+   
 }
 
 

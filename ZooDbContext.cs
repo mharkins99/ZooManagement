@@ -6,7 +6,9 @@ namespace ZooManagement
     public class ZooDbContext : DbContext
     {        
         public ZooDbContext(DbContextOptions<ZooDbContext> options) : base(options) {}
-        public DbSet<Animal> Animals { get; set; }
+        public DbSet<Animal> Animal { get; set; }
+
+
 
     }
 }
