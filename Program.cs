@@ -1,11 +1,8 @@
-using System.Linq;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using ZooManagement;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using ZooManagement.Data;
+using ZooManagement.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +22,8 @@ builder.Services.AddDbContext<ZooDbContext>(options =>
     options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
     options.UseSqlite("Data Source=zoo.db");
 });
+
+builder.Services.AddTransient<IAnimalsRepo, AnimalsRepo>();
 
 var app = builder.Build();
 

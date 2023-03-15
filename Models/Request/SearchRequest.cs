@@ -6,11 +6,11 @@ namespace ZooManagement.Models.Request
         public int PageSize { get; set; } = 10;
         public virtual string Filters => "";
     }
-
-    public class IdSearchRequest : SearchRequest
+    
+    public class UserSearchRequest : SearchRequest
     {
         private string _search;
-
+        
         public string Search
         {
             get => _search?.ToLower();
@@ -40,16 +40,19 @@ namespace ZooManagement.Models.Request
     //             {
     //                 filters += $"&postedBy={PostedBy}";
     //             }
-
+                
     //             if (LikedBy != null)
     //             {
     //                 filters += $"&likedBy={LikedBy}";
     //             }
-
+                
     //             if (DislikedBy != null)
     //             {
     //                 filters += $"&dislikedBy={DislikedBy}";
     //             }
-
+                
     //             return filters;
+    //         }
+    //     }
+    // }
 }
